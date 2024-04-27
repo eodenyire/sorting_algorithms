@@ -1,5 +1,4 @@
 #include "sort.h"
-#include <stdio.h>
 
 /**
  * insertion_sort_list - Sorts a doubly linked list of integers
@@ -8,36 +7,31 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-    listint_t *ptr, *tmp;
+    listint_t *current, *temp;
 
-    if (!list || !(*list) || !((*list)->next))
+    if (list == NULL || *list == NULL || (*list)->next == NULL)
         return;
 
-    ptr = (*list)->next;
-
-    while (ptr)
+    current = (*list)->next;
+    while (current != NULL)
     {
-        tmp = ptr;
-        ptr = ptr->next;
+        temp = current;
+        current = current->next;
 
-        while (tmp->prev && (tmp->n < tmp->prev->n))
+        while (temp->prev != NULL && temp->n < temp->prev->n)
         {
-            if (tmp->next)
-                tmp->next->prev = tmp->prev;
-
-            tmp->prev->next = tmp->next;
-            tmp->next = tmp->prev;
-            tmp->prev = tmp->prev->prev;
-
-            if (tmp->prev)
-                tmp->prev->next = tmp;
+            temp->prev->next = temp->next;
+            if (temp->next != NULL)
+                temp->next->prev = temp->prev;
+            temp->next = temp->prev;
+            temp->prev = temp->prev->prev;
+            temp->next->prev = temp;
+            if (temp->prev != NULL)
+                temp->prev->next = temp;
             else
-                *list = tmp;
-
-            if (tmp->next)
-                tmp->next->prev = tmp;
-
+                *list = temp;
             print_list(*list);
         }
     }
 }
+

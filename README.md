@@ -22,6 +22,6 @@ This repository contains solutions to the tasks in the **0x1B. C - Sorting algor
 ## Author
 Emmanuel Odenyire Anyira and Austin Muthon are both students at ALX Africa, currently enrolled in the ALX Software Engineering Program.
 For collaborations or inquiries, contact Emmanuel via email at eodenyire@gmail.com or through his [LinkedIn](https://www.linkedin.com/in/emmanuelodenyire/) account.
-Contact Austin via email,
+Contact Austin through his official [LinkedIn] account(https://www.linkedin.com/in/austin-nganga)/
 
 
