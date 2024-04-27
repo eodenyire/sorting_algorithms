@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "sort.h"
 
 /**
@@ -5,33 +6,41 @@
  *                       in ascending order using the Insertion sort algorithm
  * @list: Pointer to the pointer to the head of the list
  */
+
 void insertion_sort_list(listint_t **list)
 {
-    listint_t *current, *temp;
+	listint_t *ptr, *tmp;
 
-    if (list == NULL || *list == NULL || (*list)->next == NULL)
-        return;
+	if (!list)
+		return;
 
-    current = (*list)->next;
-    while (current != NULL)
-    {
-        temp = current;
-        current = current->next;
+	ptr = *list;
 
-        while (temp->prev != NULL && temp->n < temp->prev->n)
-        {
-            temp->prev->next = temp->next;
-            if (temp->next != NULL)
-                temp->next->prev = temp->prev;
-            temp->next = temp->prev;
-            temp->prev = temp->prev->prev;
-            temp->next->prev = temp;
-            if (temp->prev != NULL)
-                temp->prev->next = temp;
-            else
-                *list = temp;
-            print_list(*list);
-        }
-    }
+	while (ptr)
+	{
+		while (ptr->next && (ptr->n > ptr->next->n))
+		{
+			tmp = ptr->next;
+			ptr->next = tmp->next;
+			tmp->prev = ptr->prev;
+
+			if (ptr->prev)
+				ptr->prev->next = tmp;
+
+			if (tmp->next)
+				tmp->next->prev = ptr;
+
+			ptr->prev = tmp;
+			tmp->next = ptr;
+
+			if (tmp->prev)
+				ptr = tmp->prev;
+			else
+				*list = tmp;
+
+			print_list(*list);
+		}
+		ptr = ptr->next;
+	}
 }
 
