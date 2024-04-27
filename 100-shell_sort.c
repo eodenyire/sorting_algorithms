@@ -35,4 +35,3 @@ void shell_sort(int *array, size_t size)
 		gap /= 3;
 	}
 }
-
