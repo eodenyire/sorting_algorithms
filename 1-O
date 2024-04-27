@@ -1,0 +1,4 @@
+O(n)    // Best case: When the list is already sorted.
+O(n^2)  // Average case: When the list is partially sorted.
+O(n^2)  // Worst case: When the list is sorted in reverse order.
+
