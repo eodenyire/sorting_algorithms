@@ -1,48 +1,33 @@
 #include "sort.h"
 
 /**
- * get_max_gap - gets the a largest Knuth Sequence gap for this size
- * @size: the size of the array
- *
- * Return: the gap size
- */
-size_t get_max_gap(size_t size)
-{
-	size_t n;
-
-	n = 1;
-	while (n < size)
-		n = n * 3 + 1;
-	return ((n - 1) / 3);
-}
-
-/**
- * shell_sort - shell_sort
- * @array: the integer array to sort
- * @size: the size of the array
- *
- * Return: void
+ * shell_sort - Shell sort algorithm
+ * @array: unsorted data
+ * @size: large of array
+ * Return: Nothing
  */
 void shell_sort(int *array, size_t size)
 {
-	size_t gap, i, j;
-	int temp;
+	int tmp;
+	size_t j, gap, n;
 
-	if (!array || !size)
+	gap = 1;
+	if (!array || size < 2)
 		return;
-
-
-	for (gap = get_max_gap(size); gap; gap = (gap - 1) / 3)
+	/* Create Knuth sequence */
+	while (gap < size / 3)
+		gap = gap * 3 + 1;
+	while (gap > 0)
 	{
-		for (i = gap; i < size; i++)
+		for (j = gap; j < size; j += 1)
 		{
-			temp = array[i];
-			for (j = i; j > gap - 1 && array[j - gap] > temp; j -= gap)
-			{
-				array[j] = array[j - gap];
-			}
-			array[j] = temp;
+			tmp = array[j];
+			for (n = j; n >= gap && tmp < array[n - gap]; n -= gap)
+				array[n] = array[n - gap];
+			array[n] = tmp;
 		}
+		/* decreasing the interval */
+		gap /= 3;
 		print_array(array, size);
 	}
 }
