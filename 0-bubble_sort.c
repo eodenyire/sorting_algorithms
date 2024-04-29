@@ -1,52 +1,35 @@
 #include "sort.h"
-
+#include <stdio.h>
 
 /**
- * bubble_sort - Calls function
- * @array: Array to be sorted
- * @size: Size of array
- * Description: Function that sorts an array using the bubble sort method
- * Return: 0
+ * bubble_sort - sorts an array of integers in ascending order
+ *
+ * @array: The array of integer
+ * @size: The size of the array
+ *
+ * Return: void
  */
-
-
 void bubble_sort(int *array, size_t size)
 {
-	unsigned int i, j;
-    bool swapped;
+	size_t i;
+	int tmp, sorted;
 
-	if (!array)
+	if (!array || size == 0)
 		return;
 
-	for (i = 0; i < size - 1; i++)
-	{
-        swapped = false;
-		for (j = 0; j < size - i - 1; j++)
+	do {
+		sorted = 1;
+		for (i = 0; i < size - 1; i++)
 		{
-			if (array[j] > array[j + 1])
+			if (array[i] > array[i + 1])
 			{
-				swap_func(&array[j], &array[j + 1]);
-				swapped = true;
+				sorted = 0;
+				tmp = array[i];
+				array[i] = array[i + 1];
+				array[i + 1] = tmp;
 				print_array(array, size);
 			}
 		}
-	if (!swapped)
-		 break;
-	}
-}
 
-/**
- * swap_func - Function that swaps two values
- *
- * @a: Fisrt value
- * @b: Second value
- * Return: 0
- */
-void swap_func(int *a, int *b)
-{
-	int tmp;
-
-	tmp = *b;
-	*b = *a;
-	*a = tmp;
+	} while (sorted == 0);
 }
