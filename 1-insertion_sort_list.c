@@ -2,16 +2,20 @@
 #include <stdio.h>
 
 /**
- * insertion_sort_list - sorts a DLL of integers in
- * ascending order using the insertion sort
- * algorithm
+ * insertion_sort_list - Sorts a doubly linked list of integers in
+ *                       ascending order using the insertion sort algorithm
  *
- * @list: doubly linked list
- * Return: no return
+ * @list: Double pointer to the head of the doubly linked list
+ *
+ * Description: This function sorts a doubly linked list of integers in
+ *              ascending order using the insertion sort algorithm. It
+ *              iterates over the list, considering each element in turn
+ *              and inserting it into its correct position among the
+ *              previously sorted elements.
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *ptr, *tmp;
+	listint_t *ptr, *temp;
 
 	if (!list)
 		return;
@@ -22,23 +26,23 @@ void insertion_sort_list(listint_t **list)
 	{
 		while (ptr->next && (ptr->n > ptr->next->n))
 		{
-			tmp = ptr->next;
-			ptr->next = tmp->next;
-			tmp->prev = ptr->prev;
+			temp = ptr->next;
+			ptr->next = temp->next;
+			temp->prev = ptr->prev;
 
 			if (ptr->prev)
-				ptr->prev->next = tmp;
+				ptr->prev->next = temp;
 
-			if (tmp->next)
-				tmp->next->prev = ptr;
+			if (temp->next)
+				temp->next->prev = ptr;
 
-			ptr->prev = tmp;
-			tmp->next = ptr;
+			ptr->prev = temp;
+			temp->next = ptr;
 
-			if (tmp->prev)
-				ptr = tmp->prev;
+			if (temp->prev)
+				ptr = temp->prev;
 			else
-				*list = tmp;
+				*list = temp;
 
 			print_list(*list);
 		}
