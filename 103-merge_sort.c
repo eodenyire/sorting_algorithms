@@ -3,13 +3,16 @@
 #include "sort.h"
 
 /**
- * copy - copies data from one buffer to another
+ * copy - Copies data from one buffer to another.
  *
- * @src: source buffer
- * @dst: destination buffer
- * @size: size of buffers
+ * This function copies the contents of the source buffer 'src' to the
+ * destination buffer 'dst'. It copies 'size' number of elements.
  *
- * Return: No Return
+ * @src: Source buffer.
+ * @dst: Destination buffer.
+ * @size: Size of buffers.
+ *
+ * Return: No return.
  */
 void copy(int *src, int *dst, int size)
 {

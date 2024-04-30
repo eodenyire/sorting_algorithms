@@ -1,12 +1,16 @@
 #include "sort.h"
 /**
- * check_tree - swiftdown check
- * @array: pointer to array
- * @size: size of the pointer
- * @size_init: original size of the array
- * @i: index as a root of the tree
+ * check_tree - Perform heapify operation to maintain heap property.
  *
-**/
+ * This function checks if the subtree rooted at index 'i' in the array
+ * 'array' satisfies the max-heap property. If not, it swaps elements to
+ * fix the property.
+ *
+ * @array: Pointer to the array representing the heap.
+ * @size_init: Initial size of the array.
+ * @size: Current size of the heap.
+ * @i: Index representing the root of the subtree.
+ */
 void check_tree(int *array, size_t size_init, size_t size, size_t i)
 {
 

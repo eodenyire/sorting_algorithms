@@ -1,12 +1,12 @@
 #include "sort.h"
 
 /**
- * _swap - Swaps two nodes of a doubly linked list.
+ * _swap - Swaps two nodes of doubly linked list
  *
- * @node: Pointer to the node to be swapped.
- * @list: Pointer to the head of the doubly linked list.
+ * @node: node base to change
+ * @list: double link list head
  *
- * Description: This function swaps two adjacent nodes in a doubly linked list.
+ * Return: No Return
  */
 void _swap(listint_t **node, listint_t **list)
 {
