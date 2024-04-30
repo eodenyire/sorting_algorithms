@@ -32,7 +32,7 @@ typedef struct card_s
 } card_t;
 
 /**
- * struct deck_node_s - Deck of card
+ * struct deck_node_s - Deck of cards
  *
  * @card: Pointer to the card of the node
  * @prev: Pointer to the previous node of the list
