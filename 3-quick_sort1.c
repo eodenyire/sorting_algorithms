@@ -2,12 +2,9 @@
 
 /**
  * swap_items - Swaps two items in an array.
- *
  * @array: The array to modify.
  * @l: The index of the left item.
  * @r: The index of the right item.
- *
- * Description: This function swaps two elements in the array.
  */
 void swap_items(int *array, size_t l, size_t r)
 {
