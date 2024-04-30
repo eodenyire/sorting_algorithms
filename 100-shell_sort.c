@@ -1,11 +1,13 @@
 #include "sort.h"
 #include <stdio.h>
 /**
- * _swap - swaped 2 values.
- * @array: the array for swap him values.
- * @i: First index
- * @j: Second index
- * Return: Nothing
+ * _swap - Swaps two elements in an array.
+ *
+ * @array: The array to modify.
+ * @i: The index of the first element.
+ * @j: The index of the second element.
+ *
+ * Description: This function swaps two elements in the array.
  */
 void _swap(int *array, int i, int j)
 {
@@ -20,10 +22,16 @@ void _swap(int *array, int i, int j)
 }
 
 /**
- * shell_sort - sort the list and print the changes
+ * shell_sort - Sorts an array using the Shell Sort algorithm.
+ *
  * @array: The array to sort.
- * @size: Size of the array
- * Return: Nothing
+ * @size: Size of the array.
+ *
+ * Description: This function sorts an array using the Shell Sort algorithm
+ * which is an extension of insertion sort. It divides the initial unsorted
+ * list into smaller sublists using a gap value, and then sorts these sublists
+ * using insertion sort. The gap value decreases in each iteration until it
+ * becomes 1, where the last iteration performs a standard insertion sort.
  */
 void shell_sort(int *array, size_t size)
 {
